@@ -1,11 +1,6 @@
 <?php
 
 session_start();
-$_SESSION['x'] = 'Oi, eu sou um valor de sessão!';
-print_r($_SESSION);
-echo '<hr/>';
-print_r($_SESSION['y']);
-
 
 //VARIAVEL QUE VERIFICA SE A AUTENTICAÇÃO FOI REALIZADA
 $usuario_autenticado = false;
@@ -37,8 +32,8 @@ foreach($usuarios_app as $user){
 
     if($usuario_autenticado){
         echo 'Usuário autenticado.';
-
         $_SESSION['autenticado'] = 'SIM';
+        header('Location: home.php');
     }else{  
         $_SESSION['autenticado'] = 'NÃO';
         header('Location: index.php?login=erro');
